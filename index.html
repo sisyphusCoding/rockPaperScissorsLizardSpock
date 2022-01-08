@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="Rock Paper Scissors Lizard Spock" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0bb7e00eac.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="scoreBoard">
+      <div class="left"></div>
+      <div class="right">
+        <h4>SCORE</h4>
+        <div id="result">0</div>
+      </div>
+    </div>
+    <div class="game">
+      <div class="choiceBtn" data-element="scissors">
+        <div class="choice scissors"><img class="logos" alt="scissors" src="https://i.ibb.co/6Xwt6MX/icon-scissors.png"></div>
+      </div>
+      <div class="choiceBtn" data-element="spock">
+        <div class="choice spock"><img class="logos" alt="spock" src="https://i.ibb.co/wYggTvB/icon-spock.png"></div>
+      </div>
+      <div class="choiceBtn" data-element="paper">
+        <div class="choice paper"><img class="logos" alt="paper" src="https://i.ibb.co/PF2qKfJ/icon-paper.png"></div>
+      </div>
+      <div class="choiceBtn" data-element="lizard">
+        <div class="choice lizard"><img class="logos" alt="lizard" src="https://i.ibb.co/jWBR5PH/icon-lizard.png"></div>
+      </div>
+      <div class="choiceBtn" data-element="rock">
+        <div class="choice rock"><img class="logos" alt="rock" src="https://i.ibb.co/cFKXvpT/icon-rock.png"></div>
+      </div>
+    </div>
+    <div class="gameArena hidden">
+      <div class="player heading">YOU PICKED</div>
+      <div class="comp heading">THE HOUSE PICKED</div>
+      <div class="playerCard card"></div>
+      <div class="winner hidden">
+        <div class="winnerText"></div>
+        <button class="playAgain">PLAY AGAIN</button>
+      </div>
+      <div class="compCard card"></div>
+    </div>
+    <div class="rules">
+      <h3 class="modalRules">RULES</h3>
+      <div class="closeRules">x</div>
+      <div class="image"></div>
+    </div>
+    <div class="rulesBtn">RULES</div>
+    <footer>
+      <div class="one"><span>Made with </span><span class="fas fa-heart"></span><span> by anish </span></div>
+      <div class="two"><a href="https://codepen.io/coding_anish" target="_blank" onclick="void(0);"><i class="fab fa-codepen"></i></a><a href="https://twitter.com/sisyphus_coding" target="_blank" onclick="void(0);"><i class="fab fa-twitter"></i></a></div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

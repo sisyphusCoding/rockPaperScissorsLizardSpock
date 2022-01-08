@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;600&family=Major+Mono+Display&display=swap')
+
+$choiceSize: 8.5
+
+$background: hsl(214, 47%, 23%) , hsl(237, 49%, 15%)
+$scissorsG: hsl(39, 89%, 49%) , hsl(40, 84%, 53%)
+$paperG: hsl(230, 89%, 62%) , hsl(230, 89%, 65%)
+$rockG: hsl(349, 71%, 52%) , hsl(349, 70%, 56%)
+$lizardG: hsl(261, 73%, 60%) , hsl(261, 72%, 63%)
+$spockG: hsl(189, 59%, 53%) , hsl(189, 58%, 57%)
+
+$mirror: hsl(214, 47%, 23%) 
+
+$dark: #00000026
+$darker: #0000004d
+
+//textColors
+
+$darkText: hsl(229, 25%, 31%)
+$scoreText: hsl(229, 64%, 46%)
+$headerOutline: hsl(217, 16%, 45%)
+
+$white: hsl(0,0,84)
+$white0: hsl(0,0,77)
+$white1: hsl(0,0,91)
+/* - Mobile: 375px - Desktop: 1366px  */
+
+
+@mixin copyCard
+	.scissors
+		&:before
+			background: linear-gradient(to left , $scissorsG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(40, 84%, 53%)
+	.spock
+		&:before
+			background: linear-gradient(to left , $spockG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(189, 58%, 57%)
+	.paper
+		&:before
+			background: linear-gradient(to left , $paperG)		
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(230, 89%, 65%)
+	.lizard
+		&:before
+			background: linear-gradient(to left , $lizardG)		
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(261, 72%, 63%)
+	.rock
+		&:before
+			background: linear-gradient(to left , $rockG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(349, 70%, 56%)
+	.choice
+		height: $choiceSize + 6 + vh
+		width: $choiceSize + 6 + vh
+		background: #fff
+		border-radius: 50%
+		display: grid
+		place-items: center
+		box-shadow: inset 0 .5vh $dark
+		img
+			object-fit: contain
+			height: $choiceSize + vh
+			width: $choiceSize + vh
+		position: relative
+		&:before,&:after
+			content: " "
+			z-index: -1
+			position: absolute
+			height: $choiceSize + 9 + vh
+			width: $choiceSize + 9 + vh
+			top: -1.5vh
+			left: -1.5vh
+			border-radius: 50%
+		&:after
+			opacity: 0
+			transition: all 400ms ease
+	
+
+
+body 
+	background: radial-gradient($background)
+	display: flex
+	justify-content: center
+	row-gap: 15vh
+	align-items: center
+	flex-direction: column
+	min-height: 100vh
+	overflow: hidden
+	
+*
+	box-sizing: border-box
+	font-family: 'Barlow Condensed', sans-serif
+	text-align: center
+	-webkit-user-select: none
+	-webkit-touch-callout: none
+	-webkit-tap-highlight-color: transparent
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	image-rendering: auto
+
+
+@mixin debug 
+	border: 1px solid #fff
+
+#scoreBoard
+	border: 0.4vh solid $headerOutline
+	height: fit-content
+	margin-top: -10vh
+	border-radius: 1.5vh
+	width: 80vh
+	display: flex
+	flex-direction: row
+	align-items: center
+	justify-content: space-between
+	padding: 1.5vh 2vh
+	> *
+		height: 13vh
+		font-size: 2.6vh
+	.left
+		background-image: url('https://i.ibb.co/NspkYZ5/logo-bonus.png')
+		background-repeat: no-repeat
+		background-size: 13vh 13vh
+		width: 13vh
+		> *
+			margin: -0.7vh 0 -0.7vh 0
+			color: $white
+			text-align: left
+	.right
+			width: 11vh
+			border-radius: 1vh
+			background: $white
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			> *
+				width: inherit
+				height: fit-content			
+			h4
+				color: $scoreText
+				margin-bottom: 2px
+			#result
+				color: $darkText
+				font-size: 5vh
+				font-weight: bolder
+				margin-bottom: 15px
+
+	
+.game
+	height: 50vh
+	width: 50vh
+	margin-top: -10vh
+	display: grid
+	z-index: 22
+	place-items: center
+	align-items: center
+	position: relative
+	grid-template-rows: (repeat(3,1fr))
+	grid-template-areas: "scissors scissors" "spock paper" "lizard rock"
+	&:after
+		content: " "
+		position: absolute
+		background-image: url('https://i.ibb.co/n3bJhbz/bg-pentagon.png')
+		background-repeat: no-repeat
+		height: 50vh
+		width: 50vh
+		z-index: -2
+		background-size: 50vh 50vh
+	.choiceBtn
+		cursor: pointer !important
+		height: fit-content
+		width: fit-content
+		&:hover .choice::after
+			opacity: 1
+			transition: all 400ms ease
+			box-shadow: 0 0 0 2vh hsl(214, 47%, 27%) 
+	.choiceBtn[data-element="scissors"]
+		grid-area: scissors
+	.choiceBtn[data-element="spock"]
+		grid-area: spock
+	.choiceBtn[data-element="paper"]
+		grid-area: paper
+	.choiceBtn[data-element="lizard"]
+		grid-area: lizard		
+	.choiceBtn[data-element="rock"]
+		grid-area: rock				
+	.choice
+		height: $choiceSize + 3 + vh
+		width: $choiceSize + 3 + vh
+		background: #fff
+		border-radius: 50%
+		display: grid
+		place-items: center
+		box-shadow: inset 0 .5vh $dark
+		img
+			object-fit: contain
+			height: $choiceSize + vh
+			width: $choiceSize + vh
+		position: relative
+		&:before,&:after
+			content: " "
+			z-index: -1
+			position: absolute
+			height: $choiceSize + 6 + vh
+			width: $choiceSize + 6 + vh
+			top: -1.5vh
+			left: -1.5vh
+			border-radius: 50%
+		&:after
+			opacity: 0
+			transition: all 400ms ease
+
+	.scissors
+		&:before
+			background: linear-gradient(to left , $scissorsG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(40, 84%, 53%)
+	.spock
+		margin-left: -17vh
+		&:before
+			background: linear-gradient(to left , $spockG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(189, 58%, 57%)
+	.paper
+		margin-right: -17vh
+		&:before
+			background: linear-gradient(to left , $paperG)		
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(230, 89%, 65%)
+	.lizard
+		margin-top: 15vh	
+		&:before
+			background: linear-gradient(to left , $lizardG)		
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(261, 72%, 63%)
+	.rock
+		margin-top: 15vh
+		&:before
+			background: linear-gradient(to left , $rockG)
+			box-shadow: 0 .5vh $darker , 0 .5vh hsl(349, 70%, 56%)
+		
+.rules	
+	position: absolute
+	width: 47vh
+	background: hsl(214, 47%, 23%) 
+	aspect-ratio: 1
+	margin-top: 50%
+	transform: translate3d(0,150%,0) scale(0)
+	bottom: 50%
+	display: grid
+	place-items: center
+	grid-template-rows: (repeat(2,1fr))
+	grid-template-areas: "modalRules closeRules" "image image"
+	font-size: 3vh
+	padding-bottom: 2vh
+	color: $white
+	border-radius: 1.5vh
+	z-index: 25
+	transition: none
+	.modalRules
+		grid-area: modalRules
+		width: 30vh
+		text-align: left
+		margin-left: 4vh
+	.closeRules
+		cursor: pointer
+		font-family: 'Major Mono Display', monospace
+		height: fit-content
+		width: fit-content
+		padding: 0.4vh
+		border-radius: 1vh
+		z-index: 2
+		opacity: 1
+		transition: all 400ms ease
+		grid-area: closeRules
+		&:hover 
+			background: $white
+			color: $darkText
+	.image
+		height: 40vh
+		width: 40vh
+		grid-area: image
+		background-image: url('https://i.ibb.co/VDpBc5J/image-rules-bonus.png')
+		background-repeat: no-repeat
+		background-size: 40vh 40vh
+	
+
+		
+.rulesBtn	
+	position: absolute
+	font-size: 2.6vh
+	color: $white
+	padding: 0.8vh 3.4vh
+	border-radius: 1.4vh
+	z-index: 1
+	border: 0.4vh solid $headerOutline
+	bottom: 3vh
+	width: fit-content
+	background: transparent
+	right: 5vh
+	visibility: show
+	transition: all 200ms ease
+	cursor: pointer
+	&:hover
+		background: $white
+		color: $darkText
+		
+.rulesShow
+	transform: translate3d(0,50%,0) scale(1)
+	box-shadow: 0 0 40vh 100vh rgba(0,0,0,0.3)
+	transition: none
+	
+.rulesBtnHide
+		visibility: hidden !important
+		transition: all 100ms ease
+
+.game
+	margin-left: 2.5vh
+	> *
+		margin-left: 2.5vh
+.gameArena
+	bottom: 10px
+	left: 10px
+	opacity: 1
+	display: grid
+	place-items: center
+	align-items: center
+	grid-template-columns: (repeat(2, 1fr))
+	grid-template-areas: "player comp " "playerCard compCard"
+	width: 50rem
+	height: 20rem
+	margin: 0 auto
+	font-weight: bold
+	font-size: 3vh
+	letter-spacing: .1vh
+	transition: all 500ms ease
+	.heading
+		color: #fff
+		padding: 2vh
+		text-align: center
+	.player
+		grid-area: player	
+		margin-left: -1vh
+	.comp
+		grid-area: comp
+	.card
+		@include copyCard
+		background: $mirror
+		z-index: -1
+		display: grid
+		place-items: center
+		align-items: center
+		min-height: 16vh
+		min-width: 16vh
+		border-radius: 50%
+		transform: scale(1.15)
+	.playerCard
+		grid-area: playerCard
+	.compCard	
+		grid-area: compCard
+
+.winner
+	grid-area: winner
+	display: grid
+	place-items: center
+	
+.winnerText	
+	font-size: 5.5vh
+	color: #fff
+	padding-bottom: 1.5rem
+
+.playAgain	
+	outline: none
+	background: #fff
+	font-weight: bold
+	border-radius: .6rem
+	color: $darkText
+	padding: .6vh 0.35vh
+	cursor: pointer
+	font-size: 2.5vh
+	border: 2px solid transparent
+	&:hover
+		border: 2px solid $headerOutline
+
+
+.gameArenaShow	
+	display: grid
+	grid-template-columns: (repeat(3, 1fr))
+	grid-template-areas: "player . comp " "playerCard winner compCard"
+	
+.hidden
+	display: none
+	transition: all 400ms ease-in	
+	
+.won
+	.choice
+		&:after
+			opacity: 1 !important
+			animation: fade-in 2s ease infinite alternate
+			@keyframes fade-in
+				0%
+					box-shadow:  0 0 0 0 transparent
+				25%
+					box-shadow:  0 0 0 12vh hsla(305, 100%, 100%, 0.05)
+				50%
+					box-shadow: 0 0 0 8vh hsla(305, 100%, 100%, 0.05) , 0 0 0 12vh hsla(305, 100%, 100%, 0.10) 
+				90%,100%
+					box-shadow: 0 0 0 4vh hsla(305, 100%, 100%, 0.05) , 0 0 0 8vh hsla(305, 100%, 100%, 0.10) , 0 0 0 12vh hsla(305, 100%, 100%, 0.15)
+			
+footer
+	position: absolute
+	bottom: 3vh
+	left: 5vh
+	color: #929292
+	.fab
+		color: #929292
+	.fa-heart
+		color: #b51a00
+	.fas
+		transform: scale(0.8)
+		animation: beat 0.5s ease alternate infinite
+		@keyframes beat
+			from
+				transform: scale(0.8)
+			to
+				transform: scale(1)
+	.two
+		> *
+			margin: 10px
+@media only screen and (max-width: 475px) 	
+	body
+		overflow: hidden
+		margin-top: 15vh
+		justify-content: flex-start
+		
+	footer
+		left: 50%
+		margin-right: -50%
+		bottom: 1vh
+		transform: translateX(-50%)
+
+		
+		
+	#scoreBoard , .gameArena
+		width: 80vw
+		
+	.gameArena
+			.card
+				transform: scale(1)
+		
+	.rulesBtn
+		left: 50%
+		bottom: 10vh
+		margin-right: -50%
+		transform: translateX(-50%)
+	.winnerText
+		font-size: 5.25vw
+	.rules	
+		height: 97vh
+		width: 95vw
+		place-items: center
+		align-items: center
+		grid-template-columns: auto
+		grid-template-rows: (repeat(3,1fr))
+		padding-bottom: 0
+		grid-template-areas: "modalRules" "image" "closeRules" 
+		.modalRules
+			width: 40vh
+			height: fit-content
+			text-align: center
+			margin-left: 0
+		
+	.gameArenaShow	
+		display: grid
+		grid-template-rows: (repeat(3, 1fr))
+		margin-top: -8vh
+		grid-template-areas: "player . comp " " playerCard . compCard"	"winner winner winner"
+		.winner
+			margin-top: 10vh
+			.playAgain
+				font-size: 3vh
+
+
+			
+
+			
+	
+
+
+
+	
+	
