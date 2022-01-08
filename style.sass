@@ -424,6 +424,8 @@ footer
 @media only screen and (max-width: 768px) 	
 	body
 		overflow: hidden
+		overflow-x: hidden
+		overflow-y: scroll
 		margin-top: 15vh
 		justify-content: flex-start
 		
@@ -467,7 +469,7 @@ footer
 	.gameArenaShow	
 		display: grid
 		grid-template-rows: (repeat(3, 1fr))
-		margin-top: -8vh
+		margin-top: -10vh
 		grid-template-areas: "player . comp " " playerCard . compCard"	"winner winner winner"
 		.winner
 			margin-top: 10vh
