@@ -677,7 +677,7 @@ footer .two > * {
 
 @media only screen and (max-width: 768px) {
   body {
-    overflow: hidden;
+    overflow-x: hidden;
     margin-top: 15vh;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
