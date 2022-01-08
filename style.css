@@ -736,7 +736,7 @@ footer .two > * {
     display: grid;
     -ms-grid-rows: (1fr)[3];
         grid-template-rows: repeat(3, 1fr);
-    margin-top: -8vh;
+    margin-top: -10vh;
         grid-template-areas: "player . comp " " playerCard . compCard"	"winner winner winner";
   }
   .gameArenaShow .winner {
