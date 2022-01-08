@@ -686,7 +686,7 @@ footer .two > * {
             justify-content: flex-start;
   }
   footer {
-    transform: scale(0.7)
+    transform: scale(0.7);
     left: 50%;
     margin-right: -50%;
     bottom: 0.1vh;
