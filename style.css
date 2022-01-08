@@ -686,7 +686,7 @@ footer .two > * {
   footer {
     left: 50%;
     margin-right: -50%;
-    bottom: 1vh;
+    bottom: 0.1vh;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
@@ -699,7 +699,7 @@ footer .two > * {
   }
   .rulesBtn {
     left: 50%;
-    bottom: 10vh;
+    bottom: 6vh;
     margin-right: -50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
