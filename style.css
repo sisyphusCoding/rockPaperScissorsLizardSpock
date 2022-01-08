@@ -740,7 +740,7 @@ footer .two > * {
         grid-template-areas: "player . comp " " playerCard . compCard"	"winner winner winner";
   }
   .gameArenaShow .winner {
-    margin-top: 8vh;
+    margin-top: 4vh;
   }
   .gameArenaShow .winner .playAgain {
     font-size: 3vh;
