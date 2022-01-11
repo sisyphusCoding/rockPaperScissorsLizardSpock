@@ -278,7 +278,6 @@ body {
   grid-template-areas: "player comp " "playerCard compCard";
   width: 50rem;
   height: 20rem;
-  margin: 0 auto;
   font-weight: bold;
   font-size: 3vh;
   letter-spacing: 0.1vh;
@@ -446,23 +445,25 @@ footer .two > * {
   margin: 10px;
 }
 
-section {
-  align-items: center;
-  display: flex;
-  width: 100vw;
-}
-
 .head {
   flex-direction: column;
   justify-content: space-between;
-  height: 75vh;
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
 }
 
 .foot {
+  width: 100vw;
+  display: flex;
+  align-items: center;
   flex-direction: row-reverse;
-  justify-content: space-around;
-  column-gap: 55vw;
+  justify-content: space-between;
   height: fit-content;
+}
+.foot > * {
+  margin: 0 2rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -486,6 +487,9 @@ section {
     bottom: 1rem;
     row-gap: 1rem;
     flex-direction: column;
+  }
+  .foot > * {
+    margin: 1rem 0;
   }
 
   .winnerText {
@@ -511,7 +515,7 @@ section {
 
   .gameArenaShow {
     display: grid;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: "player . comp " " playerCard . compCard" "winner winner winner";
   }
