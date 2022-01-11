@@ -1,55 +1,55 @@
 doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible' content='ie=edge')
-    title Rock Paper Scissors Lizard Spock
-    link(rel='stylesheet' href='style.css')
-    script(src="https://kit.fontawesome.com/0bb7e00eac.js" crossorigin="anonymous")
-  body
-    #scoreBoard
-      .left
-      .right
-        h4 SCORE
-        #result 0
-    .game
-      .choiceBtn(data-element='scissors')
-        .choice.scissors
-          img.logos(alt='scissors' src='https://i.ibb.co/6Xwt6MX/icon-scissors.png')
-      .choiceBtn(data-element='spock')
-        .choice.spock
-          img.logos(alt='spock' src='https://i.ibb.co/wYggTvB/icon-spock.png')
-      .choiceBtn(data-element='paper')
-        .choice.paper
-          img.logos(alt='paper' src='https://i.ibb.co/PF2qKfJ/icon-paper.png')
-      .choiceBtn(data-element='lizard')
-        .choice.lizard
-          img.logos(alt='lizard' src='https://i.ibb.co/jWBR5PH/icon-lizard.png')
-      .choiceBtn(data-element='rock')
-        .choice.rock
-          img.logos(alt='rock' src='https://i.ibb.co/cFKXvpT/icon-rock.png')
-    .gameArena.hidden
-      .player.heading YOU PICKED
-      .comp.heading THE HOUSE PICKED
-      .playerCard.card
-      .winner.hidden
-        .winnerText
-        button.playAgain PLAY AGAIN
-      .compCard.card
-    .rules
-      h3.modalRules RULES
-      .closeRules x
-      .image
-    .rulesBtn RULES
-    footer
-      .one
-        span Made with 
-        span(class="fas fa-heart")
-        span  by anish 
-      .two
-        a(href="https://codepen.io/coding_anish" target="_blank" onclick="void(0);")
-          i(class="fab fa-codepen")
-        a(href="https://twitter.com/sisyphus_coding" target="_blank" onclick="void(0);")
-          i(class="fab fa-twitter")
-    script(src='script.js')
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Rock Paper Scissors Lizard Spock
+  link(rel='stylesheet' href='style.css')
+  script(src='https://kit.fontawesome.com/0bb7e00eac.js' crossorigin='anonymous')
+section.head
+  #scoreBoard
+    .left
+    .right
+      h4 SCORE
+      #result 0
+  .game
+    .choiceBtn(data-element='scissors')
+      .choice.scissors
+        img.logos(alt='scissors' src='https://i.ibb.co/6Xwt6MX/icon-scissors.png')
+    .choiceBtn(data-element='spock')
+      .choice.spock
+        img.logos(alt='spock' src='https://i.ibb.co/wYggTvB/icon-spock.png')
+    .choiceBtn(data-element='paper')
+      .choice.paper
+        img.logos(alt='paper' src='https://i.ibb.co/PF2qKfJ/icon-paper.png')
+    .choiceBtn(data-element='lizard')
+      .choice.lizard
+        img.logos(alt='lizard' src='https://i.ibb.co/jWBR5PH/icon-lizard.png')
+    .choiceBtn(data-element='rock')
+      .choice.rock
+        img.logos(alt='rock' src='https://i.ibb.co/cFKXvpT/icon-rock.png')
+  .gameArena.hidden
+    .player.heading YOU PICKED
+    .comp.heading THE HOUSE PICKED
+    .playerCard.card
+    .winner.hidden
+      .winnerText
+      button.playAgain PLAY AGAIN
+    .compCard.card
+  .rules
+    h3.modalRules RULES
+    .closeRules x
+    .image
+section.foot
+  .rulesBtn RULES
+  footer
+    .one
+      span Made with 
+      span.fas.fa-heart
+      span  by anish 
+    .two
+      a(href='https://codepen.io/coding_anish' target='_blank' onclick='void(0);')
+        i.fab.fa-codepen
+      a(href='https://twitter.com/sisyphus_coding' target='_blank' onclick='void(0);')
+        i.fab.fa-twitter
+script(src='script.js')
