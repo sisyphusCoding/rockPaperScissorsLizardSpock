@@ -2,6 +2,8 @@
 
 $choiceSize: 8.5
 
+$siteurl: 'https://sisyphuscoding.github.io/rockPaperScissorsLizardSpock/'
+
 $background: hsl(214, 47%, 23%) , hsl(237, 49%, 15%)
 $scissorsG: hsl(39, 89%, 49%) , hsl(40, 84%, 53%)
 $paperG: hsl(230, 89%, 62%) , hsl(230, 89%, 65%)
@@ -78,10 +80,9 @@ $white1: hsl(0,0,91)
 body 
 	background: radial-gradient($background)
 	display: flex
-	justify-content: center
-	row-gap: 15vh
-	align-items: center
 	flex-direction: column
+	justify-content: space-around
+	align-items: center
 	min-height: 100vh
 	overflow: hidden
 	
@@ -103,7 +104,6 @@ body
 #scoreBoard
 	border: 0.4vh solid $headerOutline
 	height: fit-content
-	margin-top: -10vh
 	border-radius: 1.5vh
 	width: 80vh
 	display: flex
@@ -281,17 +281,14 @@ body
 
 		
 .rulesBtn	
-	position: absolute
 	font-size: 2.6vh
 	color: $white
 	padding: 0.8vh 3.4vh
 	border-radius: 1.4vh
 	z-index: 1
 	border: 0.4vh solid $headerOutline
-	bottom: 3vh
 	width: fit-content
 	background: transparent
-	right: 5vh
 	visibility: show
 	transition: all 200ms ease
 	cursor: pointer
@@ -378,6 +375,7 @@ body
 
 
 .gameArenaShow	
+	margin-bottom: 5rem
 	display: grid
 	grid-template-columns: (repeat(3, 1fr))
 	grid-template-areas: "player . comp " "playerCard winner compCard"
@@ -402,10 +400,6 @@ body
 					box-shadow: 0 0 0 4vh hsla(305, 100%, 100%, 0.05) , 0 0 0 8vh hsla(305, 100%, 100%, 0.10) , 0 0 0 12vh hsla(305, 100%, 100%, 0.15)
 			
 footer
-	position: absolute
-	transform: scale(0.7)
-	bottom: 3vh
-	left: 5vh
 	color: #929292
 	.fab
 		color: #929292
@@ -422,17 +416,27 @@ footer
 	.two
 		> *
 			margin: 10px
-@media only screen and (max-width: 768px) 	
-	body
-		margin-top: 15vh
-		justify-content: flex-start
 		
-	footer
-		left: 50%
-		margin-right: -50%
-		bottom: 0.1vh
-		transform: translateX(-50%)
+section
+	align-items: center
+	display: flex
+	width: 100vw
+.head
+	flex-direction: column
+	justify-content: space-between
+	height: 75vh
+	
+.foot
+	flex-direction: row-reverse
+	justify-content: space-around
+	column-gap: 55vw
+	height: fit-content
 
+	
+	
+@media only screen and (max-width: 768px)  	
+	body
+		overflow: hidden
 		
 		
 	#scoreBoard , .gameArena
@@ -441,12 +445,14 @@ footer
 	.gameArena
 			.card
 				transform: scale(1)
-		
-	.rulesBtn
-		left: 50%
-		bottom: 6vh
-		margin-right: -50%
-		transform: translateX(-50%)
+	
+	.head
+		height: 70vh
+	.foot
+		bottom: 1rem
+		row-gap: 1rem
+		flex-direction: column
+	
 	.winnerText
 		font-size: 5.25vw
 	.rules	
@@ -466,11 +472,11 @@ footer
 		
 	.gameArenaShow	
 		display: grid
+		margin-bottom: 8rem
 		grid-template-rows: (repeat(3, 1fr))
-		margin-top: -10vh
 		grid-template-areas: "player . comp " " playerCard . compCard"	"winner winner winner"
 		.winner
-			margin-top: 4vh
+			margin-top: 10vh
 			.playAgain
 				font-size: 3vh
 
